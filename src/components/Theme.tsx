@@ -13,10 +13,10 @@ const Theme = ({
 	index,
 }: ThemeProps): ReactElement => {
 	return (
-		<div className="totalite" key={index}>
-			<div className="chaquetitre">{name}</div>
+		<div key={index}>
+			<div className="my-5 font-medium text-2xl leading-5 text-gray-600">{name}</div>
 
-			<div className="element2par2">
+			<div className="flex flex-wrap flex-shrink-0 justify-between">
 				{meals.map((elem2: any, index: number) => {
 					return (
 						<Article
