@@ -1,0 +1,191 @@
+@font-face {
+  font-family: 'Stratos';
+  src: local('Stratos'), url(../src/assets/font/deliveroo-fonts_dfnsdf/StratosDeliverooWeb-SemiBold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'IBM-Plex';
+  src: local('IBM-Plex'), url(../src/assets/font/deliveroo-fonts_dfnsdf/IBMPlexSans.ttf) format('truetype');
+}
+
+body {
+	background-color: #f2f5f5;
+      font-family: IBM-Plex;
+
+.header-title{
+    font-family: Stratos;
+}
+
+}
+.div-logo-layout {
+	background-color: white;
+}
+.div-logo {
+	width: 70%;
+	margin: 0 auto;
+	margin-bottom: 2px;
+}
+.logo {
+	height: 80px;
+}
+.layout {
+	background-color: white;
+}
+header {
+	width: 70%;
+	margin: 0 auto;
+}
+.header-block {
+	display: flex;
+}
+main {
+	background: #f2f5f5;
+	margin: 0 auto;
+  margin:10px;
+}
+.img-header {
+	width: 30%;
+	display: flex;
+	object-fit: cover;
+	border-radius: 30px;
+	padding: 20px;
+}
+
+h1 {
+	font-size: 25px;
+	font-weight: 700;
+}
+
+h2 {
+	font-size: 20px;
+	font-weight: 500;
+}
+
+
+.image{
+  display: flex;
+  align-items: center;
+}
+
+.theimage {
+	padding: 10px;
+	display: flex;
+	width: 130px;
+	height: 130px;
+	object-fit: cover;
+	border-radius: 15%;
+
+  
+}
+
+.chaquetitre {
+
+	font-weight:bolder;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 25px;
+	line-height: 20px;
+	color: #2e3333;
+}
+.element2par2 {
+	display: flex;
+	flex-wrap: wrap;
+	flex-shrink: 0;
+	justify-content: space-between;
+}
+.element {
+	display: flex;
+	width: 49%;
+	background-color: white;
+	height: 160px;
+
+	margin-top: 20px;
+	margin-bottom: 20px;
+  border-radius: 10px;
+}
+.blocktext {
+	flex-direction: column;
+	flex: 1;
+  padding: 10px;
+	
+}
+
+h2 {
+	font-size: 18px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	color: #2e3333;
+}
+
+h3,
+h4 {
+	font-size: 14px;
+	color: #808484;
+	line-height: 20.8px;
+}
+
+h3{
+  display: flex;
+  width: 70%;
+  height: 45%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.header-description {
+	font-size: 19px;
+	line-height: 28.8px;
+	color: #868a8a;
+}
+
+.header-title {
+	font-size: 32px;
+	margin-top: 26.7px;
+	margin-bottom: 26.7px;
+}
+
+.list {
+	display: flex;
+	flex-direction: row;
+
+	width: 70%;
+	margin: 0 auto;
+}
+
+.aside-left {
+
+	flex: 2;
+}
+.aside-right {
+
+	flex: 1;
+}
+.panier {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	background-color: white;
+	margin: 30px;
+	position: sticky;
+	top: 25px;
+	border-radius: 10px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.w-panier {
+	height: 300px;
+	color: #868a8a;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 16px;
+}
+.button-panier {
+  	      font-family: IBM-Plex;
+	margin: 10px;
+	background-color: #bbc3c3;
+	border: none;
+	border-radius: 5px;
+	color: #8b9a9b;
+	height: 50px;
+	font-size: 16px;
+}
