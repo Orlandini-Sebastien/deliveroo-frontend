@@ -1,6 +1,9 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Header from "./components/Header";
+import Title from "./components/Title";
+import Theme from "./components/Theme";
 
 function App() {
 	const [data, setData] = useState<any>([]);
@@ -23,58 +26,18 @@ function App() {
 		<p>Chargement en cours ...</p>
 	) : (
 		<body>
-			<div className="div-logo-layout">
-				<div className="div-logo">
-					<img className="logo" src="/Deliveroo-Logo.png" alt="logo" />
-				</div>
-			</div>
-
-			<div className="layout">
-				<header>
-					<div className="header-block">
-						<div>
-							<div className="header-title">{data.restaurant.name}</div>
-							<div className="header-description">
-								{data.restaurant.description}
-							</div>
-						</div>
-						<img
-							className="img-header"
-							src={data.restaurant.picture}
-							alt="picture"
-						/>
-					</div>
-				</header>
-			</div>
-
+			<Header />
+			<Title
+				name={data.restaurant.name}
+				description={data.restaurant.description}
+				picture={data.restaurant.picture}
+			/>
 			<section className="list">
 				<aside className="aside-left">
 					<main>
-						{data.categories.slice(0, 6).map((elem: any, index: any) => {
+						{data.categories.slice(0, 6).map((elem: any, index: number) => {
 							return (
-								<div className="totalite" key={index}>
-									<div className="chaquetitre">{elem.name}</div>
-
-									<div className="element2par2">
-										{elem.meals.map((elem2: any, index: any) => {
-											return (
-												<div key={index} className="element">
-													<div className="blocktext">
-														<h2>{elem2.title} </h2>
-														<h3>{elem2.description}</h3>
-														<h4>{elem2.price}€</h4>
-														<h5>{elem2.popular}</h5>
-													</div>
-													<div className="image">
-														{elem2.picture && (
-															<img className="theimage" src={elem2.picture} />
-														)}
-													</div>
-												</div>
-											);
-										})}
-									</div>
-								</div>
+								<Theme index={index} name={elem.name} meals={elem.meals} />
 							);
 						})}
 					</main>
