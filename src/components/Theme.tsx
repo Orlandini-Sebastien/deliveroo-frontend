@@ -16,7 +16,7 @@ const Theme = ({
 		<div key={index}>
 			<div className="my-5 font-medium text-2xl leading-5 text-gray-600">{name}</div>
 
-			<div className="flex flex-wrap flex-shrink-0 justify-between">
+			<div className="flex flex-wrap  justify-between">
 				{meals.map((elem2: any, index: number) => {
 					return (
 						<Article

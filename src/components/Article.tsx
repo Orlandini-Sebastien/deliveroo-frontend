@@ -18,10 +18,10 @@ const Article = ({
 	index,
 }: ArticleProps): ReactElement => {
 	return (
-		<div key={index} className="flex bg-white my-5 rounded-2xl element">
-			<div className="flex-col w-2/3 p-2">
+		<div key={index} className="flex bg-white my-5 rounded-2xl  h-40  lg:w-11/12 xl:w-5/12 max-lg:w-full">
+			<div className="flex-col p-2 w-2/3">
 				<div className="text-lg text-gray-600 overflow-x-hidden overflow-y-hidden h-1/4 py-2">
-					{title}{" "}
+					{title}
 				</div>
 				<div className="w-4/5 h-1/2 py-6 overflow-x-hidden overflow-y-hidden  ">
 					{description}
