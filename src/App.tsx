@@ -111,70 +111,87 @@ function App() {
 					<div
 						className="flex  flex-col bg-white  rounded-2xl shadow-xl
 					md:sticky md:top-2 md:m-7 md:justify-center  md:w-full
-					max-md:fixed max-md:bottom-0 max-md:w-full"
+					max-md:fixed max-md:bottom-0 max-md:w-full "
 					>
-						<button className="border-none m-3 rounded-lg text-gray-400 h-12 text-lg bg-slate-200 ibm">
+						<button
+							className={
+								add.length === 0
+									? "border-none m-3 rounded-lg text-gray-400 h-12 text-lg bg-slate-200 ibm"
+									: "bg-blue-deliveroo text-white border-none m-3 rounded-lg text-gray-400 h-12 text-lg bg-slate-200 ibm"
+							}
+						>
 							Valider mon panier
 						</button>
-						<div className="flex flex-col  md:h-72 text-gray-400 justify-center text-lg items-center">
+						<div className="flex flex-col  mx-4   text-gray-400 justify-center text-lg items-center ">
 							{add.length === 0 ? (
-								"Votre panier est vide"
+								<div className="md:h-36">Votre panier est vide</div>
 							) : (
-								<div>
+								<div className="flex flex-col w-full text-sm ">
 									{add.map((elem: any, index: any) => {
 										return (
-											<div>
-												<button
-													onClick={() => {
-														let ok: boolean = false;
-														const newAdd = [...add];
-														for (let i in newAdd) {
-															if (newAdd[i][0] === elem[0]) {
-																newAdd[i][2]++;
-															}
-														}
-														sousTotal();
-														setAdd(newAdd);
-													}}
-													className="border"
-												>
-													+
-												</button>
-												{elem[2]}
-												{elem[0]}
-												<button
-													onClick={() => {
-														let newAdd = [...add];
+											<div key={index} className="flex justify-between">
+												<div className="flex py-2  w-4/5">
+													<div className="flex ">
+														<button
+															className="mr-1 rounded-full w-5 h-5 leading-4 border-solid  border-2 border-blue-deliveroo text-blue-deliveroo text-center items-center"
+															onClick={() => {
+																const newAdd = [...add];
+																for (let i in newAdd) {
+																	if (newAdd[i][0] === elem[0]) {
+																		newAdd[i][2]++;
+																	}
+																}
+																sousTotal();
+																setAdd(newAdd);
+															}}
+														>
+															+
+														</button>
 
-														for (let i in newAdd) {
-															if (newAdd[i][0] === elem[0]) {
-																newAdd[i][2]--;
-															}
-														}
-														newAdd = newAdd.filter((a) => a[2] !== 0);
-														sousTotal();
-														setAdd(newAdd);
-													}}
-													className="border"
-												>
-													-
-												</button>
+														<div className="leading-5 w-5 text-center ">
+															{elem[2]}
+														</div>
+
+														<button
+															className="mx-1 rounded-full border-solid border-2 w-5 h-5 leading-4 text-center border-blue-deliveroo text-blue-deliveroo"
+															onClick={() => {
+																let newAdd = [...add];
+
+																for (let i in newAdd) {
+																	if (newAdd[i][0] === elem[0]) {
+																		newAdd[i][2]--;
+																	}
+																}
+																newAdd = newAdd.filter((a) => a[2] !== 0);
+																sousTotal();
+																setAdd(newAdd);
+															}}
+														>
+															-
+														</button>
+													</div>
+
+													<div className="leading-5">{elem[0]}</div>
+												</div>
+												<div className="leading-5 mt-2">{elem[1]} €</div>
 											</div>
 										);
 									})}
 
-								<div>
-								Sous-total <span>{sousTotal()}</span>
-							</div>
-							<div>
-								Frai de livraison <span>2.5</span>
-							</div>
-							<div>
-								Total <span>{Number(sousTotal()) + 2.5}</span>
-							</div>	
+									<div className="border-b-2 border-t-2 border-solid border-gray-400 my-2 py-2">
+										<div>
+											Sous-total <span>{sousTotal()} €</span>
+										</div>
+										<div>
+											Frai de livraison <span>2.5 €</span>
+										</div>
+									</div>
+
+									<div className="py-2 text-xl font-extrabold text-gray-600">
+										Total <span>{Number(sousTotal()) + 2.5} €</span>
+									</div>
 								</div>
 							)}
-							
 						</div>
 					</div>
 				</aside>
