@@ -108,7 +108,7 @@ function App() {
 						);
 					})}
 				</aside>
-				<aside className="max-md:hidden md:block md:w-1/3">
+				<aside className="max-md:hidden md:block md:w-1/2 xl:w-1/3">
 					<div
 						className="flex  flex-col bg-white  rounded-2xl shadow-xl
 					md:sticky md:top-2 md:m-7 md:justify-center  md:w-full
