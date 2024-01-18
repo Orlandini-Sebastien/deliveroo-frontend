@@ -117,7 +117,7 @@ function App() {
 							className={
 								add.length === 0
 									? "border-none m-3 rounded-lg text-gray-400 h-12 text-lg bg-slate-200 ibm"
-									: "bg-blue-deliveroo text-white border-none m-3 rounded-lg text-gray-400 h-12 text-lg bg-slate-200 ibm"
+									: "bg-blue-deliveroo text-white border-none m-3 rounded-lg  h-12 text-lg ibm"
 							}
 						>
 							Valider mon panier
