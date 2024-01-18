@@ -14,7 +14,7 @@ const Title = ({ name, description, picture }: TitleProps): ReactElement => {
 						<div className="my-4 text-3xl font-bold ">{name}</div>
 						<div className="leading-8 text-xl text-gray-400">{description}</div>
 					</div>
-					<img className="lg:w-1/3 max-lg:w-full object-cover rounded-xl -mr-6 ml-8 my-8" src={picture} alt="picture" />
+					<img className="lg:w-1/3 max-lg:h-72 object-cover rounded-xl lg:-mr-6 ml-8 my-8" src={picture} alt="picture" />
 			</div>
 		</div>
 	);
