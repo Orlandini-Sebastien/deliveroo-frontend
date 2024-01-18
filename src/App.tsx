@@ -8,6 +8,7 @@ function App() {
 	const [data, setData] = useState<any>([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [add, setAdd] = useState<any>([]);
+	const [showCart, setShowCart] = useState(false);
 	const sousTotal = () => {
 		let total = 0;
 		for (let i = 0; i < add.length; i++) {
@@ -188,7 +189,8 @@ function App() {
 									</div>
 
 									<div className="py-2 text-xl font-extrabold text-gray-600">
-										Total <span>{Number(sousTotal()) + 2.5} €</span>
+										Total{" "}
+										<span>{(Number(sousTotal()) + 2.5).toFixed(2)} €</span>
 									</div>
 								</div>
 							)}
@@ -200,9 +202,122 @@ function App() {
 						className="flex  flex-col bg-white  rounded-2xl shadow-xl
 						max-md:fixed max-md:bottom-0 max-md:w-11/12 -mx-1"
 					>
-						<button className="border-none m-3 rounded-lg text-gray-400 h-12 text-lg bg-slate-200 ibm">
-							Voir le panier
-						</button>
+						<div>
+							{!showCart ? (
+								<button
+									onClick={() => {
+										setShowCart((prev) => !prev);
+									}}
+									className="border-none m-3 rounded-lg text-gray-400 h-12 text-lg bg-slate-200 ibm w-11/12"
+								>
+									{!showCart ? "Voir le panier" : "Cacher le panier"}
+								</button>
+							) : (
+								<aside className="flex justify-center">
+									<button
+										onClick={() => {
+											setShowCart((prev) => !prev);
+										}}
+										className="border-none m-3 rounded-lg text-gray-400 h-12 text-lg bg-slate-200 ibm w-11/12"
+									>
+										{!showCart ? "Voir le panier" : "Cacher le panier"}
+									</button>
+									<div
+										className="flex  flex-col bg-white  rounded-2xl shadow-xl
+										md:sticky md:top-2 md:m-7 md:justify-center  md:w-full
+										max-md:fixed max-md:bottom-20 max-md:w-11/12 "
+									>
+										<button
+											className={
+												add.length === 0
+													? "border-none m-3 rounded-lg text-gray-400 h-12 text-lg bg-slate-200 ibm"
+													: "bg-blue-deliveroo text-white border-none m-3 rounded-lg  h-12 text-lg ibm"
+											}
+										>
+											Valider mon panier
+										</button>
+										<div className="flex flex-col  mx-4   text-gray-400 justify-center text-lg items-center ">
+											{add.length === 0 ? (
+												<div className="md:h-36">Votre panier est vide</div>
+											) : (
+												<div className="flex flex-col w-full text-sm ">
+													{add.map((elem: any, index: any) => {
+														return (
+															<div key={index} className="flex justify-between">
+																<div className="flex py-2  w-4/5">
+																	<div className="flex ">
+																		<button
+																			className="mr-1 rounded-full w-5 h-5 leading-4 border-solid  border-2 border-blue-deliveroo text-blue-deliveroo text-center items-center"
+																			onClick={() => {
+																				const newAdd = [...add];
+																				for (let i in newAdd) {
+																					if (newAdd[i][0] === elem[0]) {
+																						newAdd[i][2]++;
+																					}
+																				}
+																				sousTotal();
+																				setAdd(newAdd);
+																			}}
+																		>
+																			+
+																		</button>
+
+																		<div className="leading-5 w-5 text-center ">
+																			{elem[2]}
+																		</div>
+
+																		<button
+																			className="mx-1 rounded-full border-solid border-2 w-5 h-5 leading-4 text-center border-blue-deliveroo text-blue-deliveroo"
+																			onClick={() => {
+																				let newAdd = [...add];
+
+																				for (let i in newAdd) {
+																					if (newAdd[i][0] === elem[0]) {
+																						newAdd[i][2]--;
+																					}
+																				}
+																				newAdd = newAdd.filter(
+																					(a) => a[2] !== 0
+																				);
+																				sousTotal();
+																				setAdd(newAdd);
+																			}}
+																		>
+																			-
+																		</button>
+																	</div>
+
+																	<div className="leading-5">{elem[0]}</div>
+																</div>
+																<div className="leading-5 mt-2">
+																	{elem[1]} €
+																</div>
+															</div>
+														);
+													})}
+
+													<div className="border-b-2 border-t-2 border-solid border-gray-400 my-2 py-2">
+														<div>
+															Sous-total <span>{sousTotal()} €</span>
+														</div>
+														<div>
+															Frai de livraison <span>2.5 €</span>
+														</div>
+													</div>
+
+													<div className="py-2 text-xl font-extrabold text-gray-600">
+														Total{" "}
+														<span>
+															{(Number(sousTotal()) + 2.5).toFixed(2)} €
+														</span>
+													</div>
+												</div>
+											)}
+										</div>
+									</div>
+								</aside>
+							)}
+						</div>
 					</div>
 				</aside>
 			</section>
