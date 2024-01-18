@@ -202,8 +202,9 @@ function App() {
 						className="flex  flex-col bg-white  rounded-2xl shadow-xl
 						max-md:fixed max-md:bottom-0 max-md:w-11/12 -mx-1"
 					>
-						<div>
+						<div >
 							{!showCart ? (
+								<div className="flex justify-center">
 								<button
 									onClick={() => {
 										setShowCart((prev) => !prev);
@@ -211,7 +212,9 @@ function App() {
 									className="border-none m-3 rounded-lg text-gray-400 h-12 text-lg bg-slate-200 ibm w-11/12"
 								>
 									{!showCart ? "Voir le panier" : "Cacher le panier"}
-								</button>
+								</button>	
+								</div>
+								
 							) : (
 								<aside className="flex justify-center">
 									<button
