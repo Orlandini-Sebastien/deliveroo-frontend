@@ -3,7 +3,7 @@ const Header = () => {
 		
 			<div className="bg-white">
 			<div className="lg:m-auto lg:w-2/3 mb-1 max-lg:mx-8">
-				<img className="w-1/6 object-cover flex " src="/Deliveroo-Logo.png" alt="logo" />
+				<img className="max-lg:w-1/4 lg:w-1/6 object-cover flex " src="/Deliveroo-Logo.png" alt="logo" />
 			</div>
 		</div>
 	
